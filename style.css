@@ -1,0 +1,361 @@
+* {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* 1. Improved Background Contrast */
+/* Apply the background to the body so it's everywhere */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  color: white;
+  
+  /* The Background Magic */
+  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+              url("./images/classroom.jpg") center/cover no-repeat fixed;
+  min-height: 100vh;
+}
+
+/* Remove individual background settings from these classes */
+.background, .profile-page {
+  min-height: 100vh;
+  padding: 40px;
+  /* Remove the background: url(...) lines from here */
+}
+
+/* Container for all teacher cards */
+.teacher-container {
+  display: flex;
+  flex-wrap: wrap; /* Allows cards to wrap to the next line */
+  gap: 20px;       /* Space between teacher cards */
+  padding: 20px 0;
+  justify-content: center; /* Centers the cards on the page */
+}
+
+/* Ensure each teacher card has a consistent look */
+.teacher {
+  flex: 1;
+  min-width: 350px; /* Minimum width before they wrap */
+  max-width: 450px; /* Prevents cards from getting too wide */
+  display: flex;
+  gap: 30px;
+  padding: 30px;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+}
+/* 3. Modern Student Card UI */
+.student {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 15px;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.student:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-10px); /* Lift effect */
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.student img {
+  width: 100%;
+  aspect-ratio: 1/1; /* Keeps images perfectly square */
+  border-radius: 18px;
+  object-fit: cover;
+  margin-bottom: 12px;
+  border: 2px solid rgba(255,255,255,0.4);
+}
+
+.student p {
+  margin: 0;
+  font-weight: 500;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+}
+
+/* Fixed Floating Navigation Bar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* Use 'border-box' to ensure padding doesn't add to the width */
+  box-sizing: border-box; 
+  /* Reduce horizontal padding on mobile if needed */
+  padding: 15px 5%; 
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  z-index: 1000;
+}
+
+.profile-page { padding-top: 120px !important; }
+.nav-links {
+  display: flex;
+  gap: 20px;
+  /* Ensure the links don't shrink or get pushed out */
+  flex-shrink: 0; 
+}
+
+/* Add a Media Query for small screens to prevent overlap */
+@media (max-width: 480px) {
+  .navbar {
+    padding: 15px 15px;
+  }
+  .nav-logo {
+    font-size: 1rem;
+  }
+  .nav-links {
+    gap: 10px;
+  }
+  .nav-links a {
+    font-size: 0.8rem;
+  }
+}
+
+.nav-logo {
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: white;
+  letter-spacing: 0.5px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  font-size: 0.95rem;
+  font-weight: 500;
+  opacity: 0.85;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.nav-links a:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+/* ===== CLEAN STUDENT PROFILE (REFERENCE STYLE) ===== */
+
+.profile-clean {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 160px; /* space for navbar */
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  gap: 60px;
+}
+
+/* Left - About */
+.profile-about h3,
+.profile-details h3 {
+  margin-bottom: 14px;
+  font-size: 1.4rem;
+  letter-spacing: 1px;
+}
+.profile-details p {
+  margin: 10px 0;
+  font-size: 1.1rem;     /* was 0.95rem */
+  opacity: 0.95;
+}
+
+/* Center - Photo */
+.profile-photo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.profile-photo img {
+  width: 300px;          /* BIGGER image */
+  height: 300px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid rgba(255,255,255,0.6);
+}
+
+/* Right - Details */
+.profile-details p {
+  margin: 8px 0;
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .profile-clean {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 40px;
+  }
+
+  .profile-photo img {
+    width: 220px;
+    height: 220px;
+  }
+}
+
+/* ===== STUDENT BOTTOM NAVIGATION ===== */
+
+.bottom-nav {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 24px;
+  padding: 14px 28px;
+  background: rgba(255, 255, 255, 0.45); /* darker for readability */
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 999px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+  z-index: 1000;
+}
+
+/* Prevent images from exploding */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ===== STUDENT ALBUM GRID ===== */
+
+.students-section {
+  padding: 120px 60px;
+}
+
+.student-album {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 20px;
+  max-height: 70vh; /* LIMIT HEIGHT */
+  overflow-y: auto; /* scroll inside grid only */
+  padding-right: 10px;
+}
+
+/* Student card */
+.student-card {
+  text-decoration: none;
+  color: white;
+  text-align: center;
+}
+
+.student-card img {
+  width: 100%;
+  aspect-ratio: 1 / 1;   /* square album */
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  transition: transform 0.3s ease;
+}
+
+.student-card:hover img {
+  transform: scale(1.05);
+}
+
+.student-card span {
+  display: block;
+  margin-top: 8px;
+  font-size: 0.85rem;
+  opacity: 0.85;
+}
+
+/* ===== TEACHER IMAGE SIZE CONTROL ===== */
+
+.teacher-photo {
+  width: 160px;      /* normal profile size */
+  height: 160px;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto;
+}
+
+
+.student-name {
+  font-size: 2rem;              /* big but clean */
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 16px;
+  letter-spacing: 0.5px;
+  color: white;
+}
+
+.student-name::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 3px;
+  margin: 10px auto 0;
+  background: rgba(255,255,255,0.7);
+  border-radius: 3px;
+}
+
+/* Container for logo and text */
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px; /* Space between logo and text */
+}
+
+/* Styling the school logo */
+.school-logo {
+  height: 40px; /* Adjust height based on your logo shape */
+  width: auto;  /* Maintains aspect ratio */
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2)); /* Optional shadow */
+}
+
+/* Ensure the nav-logo text doesn't wrap oddly */
+.nav-logo {
+  white-space: nowrap;
+}
+
+.search-container {
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+#studentSearch {
+  width: 100%;
+  max-width: 400px;
+  padding: 12px 20px;
+  font-size: 1rem;
+  color: white;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 25px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+#studentSearch::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+#studentSearch:focus {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
+

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <a href="guru.html" class="active">Teacher</a>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Profile - Mr. Laksamana Nur Ramadhan</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Custom tweak for a wider teacher profile */
+        .glass-profile.teacher-card {
+            width: 700px;
+            max-width: 95%;
+            text-align: left;
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .teacher-image-large {
+            width: 250px;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 20px;
+            border: 2px solid rgba(255,255,255,0.5);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 5px 15px;
+            background: #ffd700; /* Gold color for teacher badge */
+            color: #333;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        @media (max-width: 600px) {
+            .glass-profile.teacher-card {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="nav-brand">
+        <img src="images/school-logo.png" alt="School Logo" class="school-logo">
+        <a href="index.html" class="nav-logo">Al-Azhar Asy-Syarif</a>
+    </div>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="guru.html">Teacher</a>
+        <a href="index.html#students">Students</a>
+    </div>
+</nav>
+
+
+    <div class="profile-page">
+        <div class="glass-profile teacher-card">
+            
+            <img src="images/teacher.jpg" alt="Mr. Laksamana Nur Ramadhan" class="teacher-image-large">
+
+            <div class="teacher-details">
+                <span class="badge">Computer FACULTY</span>
+                <h1 style="margin: 0;">Mr. Laksamana Nur Ramadhan</h1>
+                <p style="font-size: 1.2rem; color: rgba(255,255,255,0.9);">IT Teacher & Class Mentor</p>
+                
+                <div class="section" style="border-top: 1px solid rgba(255,255,255,0.2); padding-top: 20px;">
+                    <h4>Education & Background</h4>
+                    <p style="font-size: 0.95rem; line-height: 1.6;">
+                        With over 5 years of experience in Educational Technology, Mr. Laksamana Nur Ramadhan specializes in ICT Class, Videography
+                        UI/UX design, Graphic Design and helping students find their creative voice through technology.
+                    </p>
+                </div>
+
+                <div class="section">
+                    <h4>Class Motto</h4>
+                    <p style="font-style: italic; color: #eee;">"Tomorrow never comes until it's too late"</p>
+                </div>
+
+                <div class="nav-buttons">
+                    <a href="index.html">← Back to Classroom</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
